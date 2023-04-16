@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Messaging App</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+			align-items: center;
+			justify-content: center;
+			background-color: #f2f2f2;
+		}
+		.message-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			max-height: 300px;
+			overflow-y: scroll;
+			width: 80%;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			padding: 10px;
+		}
+		.message-list li {
+			margin-bottom: 10px;
+			padding: 5px;
+			border-bottom: 1px solid #ccc;
+		}
+		.message-form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 80%;
+			margin-top: 20px;
+		}
+		.message-form label {
+			margin-bottom: 5px;
+		}
+		.message-form input[type="text"], .message-form textarea {
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			margin-bottom: 10px;
+			resize: none;
+		}
+		.message-form button {
+			padding: 10px 20px;
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-weight: bold;
+		}
+		.message-form button:hover {
+			background-color: #0062cc;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="message-list"></ul>
+		<form class="message-form">
+			<label for="name">Name:</label>
+			<input type="text" id="name" placeholder="Enter your name">
+			<label for="message">Message:</label>
+			<textarea id="message" placeholder="Type your message"></textarea>
+			<button type="submit">Send</button>
+		</form>
+	</div>
+	<script>
+		const messageList = document.querySelector('.message-list');
+		const messageForm = document.querySelector('.message-form');
+		const nameInput = document.querySelector('#name');
+		const messageInput = document.querySelector('#message');
+		
+		function displayMessage(name, message) {
+			const li = document.createElement('li');
+			li.innerHTML = `<strong>${name}</strong>: ${message}`;
+			messageList.appendChild(li);
+		}
+		
+		function sendMessage(name, message) {
+			// Here, you can add your code to send the message to a server or a database
+			// For the sake of simplicity, we'll just display the message on the screen
+			displayMessage(name, message);
+		}
+		
+		messageForm.addEventListener('submit', event => {
+			event.preventDefault();
+			const name = nameInput.value.trim();
+			const message = messageInput.value.trim();
+			if (name && message) {
+				sendMessage(name, message);
+				messageInput.value = '';
+			}
+		});
+	</script>
+</body>
+</html>

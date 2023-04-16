@@ -1,0 +1,31 @@
+Emi, president
+Kai, event
+Joyce, vice
+Jason, money
+
+start database then Start website 
+
+Properly store passwords on the server
+--> add dummy users to the database (sql.py, def add_user)
+--> Password should be encrypt before it store, 
+
+login page 
+(might need java script to encrypt password)
+--> try login using valid username and password (use controller and model), compare the encrypted text
+--> model.py def log_check needs to access database (sql.py) & pass in username and password (def check_credentials)
+
+Propery store password on server 
+
+1. Create a basic HTML login page with input fields for username and password, and a submit button.
+
+2. Write the client-side validation using JavaScript to ensure that the user has entered valid login credentials.
+
+3. Use Python to create a server-side script to handle the login request. You can use a framework like Flask or Django to make this process easier.
+
+4. Write the code in Python to check the credentials against a database of registered users. You can use SQL databases like MySQL or PostgreSQL for this purpose.
+
+5. If the credentials are valid, create a session token to keep the user authenticated on the server. You can use libraries like JWT or Flask-Login for this purpose.
+
+6. Redirect the user to a new page if the login is successful, or display an error message if the credentials are invalid.
+
+7. Use secure protocols like HTTPS to ensure that the user's login credentials are encrypted during transmission.

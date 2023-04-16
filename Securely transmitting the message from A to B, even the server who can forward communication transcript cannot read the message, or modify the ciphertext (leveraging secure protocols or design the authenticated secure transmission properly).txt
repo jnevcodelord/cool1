@@ -1,0 +1,42 @@
+1. Choose a secure encryption algorithm
+The first step is to choose a secure encryption algorithm  --> maybe AES or RSA. 
+
+The encryption algorithm
+- should have strong security guarantees
+- should not be vulnerable to known attacks.
+
+
+2. Generate a shared secret key
+Both parties (A and B) need to generate a shared secret key that will be used to encrypt and decrypt the message. 
+This key should: 
+- be kept secret 
+- not transmitted over the network.
+
+
+3. Implement end-to-end encryption
+- The message should be encrypted on A's device 
+- decrypted on B's device, without being decrypted or read by the server. 
+- End-to-end encryption ensures that the message can only be read by the intended recipient, even if the server is compromised.
+
+
+4. Authenticate the message
+To ensure that the message has not been modified during transmission:
+- authenticate the message using a secure hash function, such as SHA-256. 
+- The hash function should be applied to the message 
+- The hash should be sent along with the encrypted message.
+
+
+5. Use a secure key exchange protocol: 
+When generating the shared secret key:
+- use a secure key exchange protocol --> Diffie-Hellman (DH) or Elliptic Curve Diffie-Hellman (ECDH) ?? 
+- These protocols allow both parties to generate the same shared secret key without transmitting it over the network.
+
+
+6. Use a secure transport layer protocol: To further protect against attacks, 
+- use a secure transport layer protocol such as TLS/SSL to transmit the encrypted message. 
+- This protocol provides encryption and authentication of the communication channel between A and B.
+
+
+
+
+
